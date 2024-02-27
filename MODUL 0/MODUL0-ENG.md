@@ -1,6 +1,6 @@
 # **Modul 0**
 
-## Software 
+## Software Installation
 
 - WINDOWS
     - [XAMPP INSTALLATION FOR WINDOWS](#xampp-installation-for-windows)

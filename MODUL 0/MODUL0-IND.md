@@ -1,6 +1,6 @@
 # **Modul 0**
 
-## Instalasi Perangkat 
+## Instalasi Perangkat Lunak
 
 - WINDOWS
     - [INSTALASI XAMPP UNTUK WINDOWS](#instalasi-xampp-untuk-windows)
