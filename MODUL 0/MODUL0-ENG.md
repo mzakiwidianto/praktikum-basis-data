@@ -1,6 +1,13 @@
 # **Modul 0**
 
-## Software Installation
+## Software 
+
+- WINDOWS
+    - [XAMPP INSTALLATION FOR WINDOWS](#xampp-installation-for-windows)
+    - [HOW TO CHANGE XAMPP PORT FOR WINDOWS](#how-to-change-xampp-port-for-windows)
+- MAC OS
+    - [XAMPP INSTALLATION FOR MAC OS](#xampp-installation-for-mac-os)
+    - [HOW TO CHANGE XAMPP PORT FOR MAC OS](#how-to-change-xampp-port-for-mac-os)
 
 ---
 

@@ -1,6 +1,14 @@
 # **Modul 0**
 
-## Instalasi Perangkat Lunak
+## Instalasi Perangkat 
+
+- WINDOWS
+    - [INSTALASI XAMPP UNTUK WINDOWS](#instalasi-xampp-untuk-windows)
+    - [CARA MENGGANTI PORT XAMPP WINDOWS](#cara-mengganti-port-xampp-windows)
+- MAC OS
+    - [INSTALASI XAMPP UNTUK MAC OS](#instalasi-xampp-untuk-mac-os)
+    - [CARA MENGGANTI PORT XAMPP MAC OS](#cara-mengganti-port-xampp-mac-os)
+
 
 ---
 
@@ -8,6 +16,7 @@
 
 > 1. Buka link berikut, [Download XAMPP](https://www.apachefriends.org/download.html)
 > 2. Pada halaman tersebut, pilih pada bagian download untuk Windows. Pilih versi yang terbaru
+
 ![Image Download XAMPP 1](img/1.png)
 
 > 3. Tunggu hingga file installernya selesai
