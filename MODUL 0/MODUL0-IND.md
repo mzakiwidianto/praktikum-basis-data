@@ -174,7 +174,7 @@
 
 ![Image XAMPP Config 41](img/41.png)
 
-> 4. Untuk mengganti port mysql sama seperti apache, hanya saja cari code di “my.ini” pada config mysql yang bertuliskan `port=3306` dan diubah menjadi `port=3308`
+> 4. Untuk mengganti port mysql sama seperti apache, hanya saja cari code di “my.cnf” pada config mysql yang bertuliskan `port=3306` dan diubah menjadi `port=3308`
 
 ![Image XAMPP Config 42](img/42.png)
 
