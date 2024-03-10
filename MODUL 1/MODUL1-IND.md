@@ -1,6 +1,6 @@
 # **MODUL 1**
 ###### Table of Content
-[Pengantar Database](#Pengantar-Database)
+[Pengantar Database](#1-pengantar-database)
 
 [*Data Definition Language* (DDL)](#Data-Definition-Language-(DDL))
 
