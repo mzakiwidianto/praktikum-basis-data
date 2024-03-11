@@ -5,8 +5,8 @@
     - [**DBMS**](#dbms-database-management-system)
     - [**SQL**](#sql)
     - [**Tipe Data pada MySQL**](#tipe-data-pada-mysql)
-    
-- ### [*Data Definition Language* (DDL)](#data-definition-language-ddl)
+
+- ### [*Data Definition Language* (DDL)](#data-definition-language-ddl-1)
 
 - ### [**Statement DDL pada *Database* MySQL**](#statement-ddl-pada-database-mysql-1)
 
