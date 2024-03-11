@@ -10,9 +10,9 @@
 
 - ### [**Statement DDL pada *Database* MySQL**](#statement-ddl-pada-database-mysql-1)
 
-- ### [***MySQL Constraint***](mysql-constraint-1)
+- ### [***MySQL Constraint***](#mysql-constraint-1)
 
-- ### [***Referential Integrity Constraint***](referential-integrity-constraint-1)
+- ### [***Referential Integrity Constraint***](#referential-integrity-constraint-1)
 
 ---
 ## **Pengantar *Database***
