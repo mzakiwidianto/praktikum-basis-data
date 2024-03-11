@@ -1,23 +1,18 @@
 # **MODUL 1**
 ###### Table of Content
-- ### [**Pengantar Database**](#1-pengantar-database)
+- ### [**Pengantar Database**](#pengantar-database)
     - [***Database***](#database)
     - [**DBMS**](#dbms-database-management-system)
     - [**SQL**](#sql)
     - [**Tipe Data pada MySQL**](#tipe-data-pada-mysql)
-<br>
+    
+- ### [*Data Definition Language* (DDL)](#data-definition-language-ddl)
 
-- ### [*Data Definition Language* (DDL)](#2-data-definition-language-(ddl))
-    - [***CREATE***](#create)
-    - [***ALTER***](#alter)
-    - [***DROP***](#drop)
-<br>
+- ### [**Statement DDL pada *Database* MySQL**](#statement-ddl-pada-database-mysql-1)
 
-- ### [**Statement DDL pada *Database* MySQL**](#statement-ddl-pada-database-mysql)
+- ### [***MySQL Constraint***](mysql-constraint-1)
 
-- ### [***MySQL Constraint***](mysql-constraint)
-
-- ### [***Referential Integrity Constraint***](referential-integrity-constraint)
+- ### [***Referential Integrity Constraint***](referential-integrity-constraint-1)
 
 ---
 ## **Pengantar *Database***
@@ -105,7 +100,7 @@
     | `Blob` | Tipe data yang digunakan untuk menyimpan data biner dengan panjang yang sangat besar. Tipe data ini dapat menyimpan data biner dengan panjang hingga 65,535 byte. |
 
     ___
-## 2. ***Data Definition Language* (DDL)**
+## ***Data Definition Language* (DDL)**
 <div align='justify'>
 &nbsp;&nbsp;&nbsp;DDL atau <i>Data Definition Language</i> merupakan bahasa pemrograman SQL (<i>Structure Query Language</i>) yang mempunyai perintah untuk membuat dan memodifikasi struktur dari suatu objek dalam database yang utamanya berbentuk skema. Objek tersebut dapat berupa tabel, index, view, dan trigger. Fungsi utama DDL sebagai berikut : 
 </div>
@@ -399,7 +394,7 @@
         Contoh : 
         <p align="center">
         <img src="img/17.png" width="500">
-        <img src="img/18.png" width="400">
+        <img src="img/18.png" width="500">
         </p>
 
     - #### **DROP TABLE**
