@@ -173,6 +173,83 @@ WHERE nama_kolom operator
 ## H. OPERATOR PEMBANDING
 ### 1. Wildcard
 Wildcard merupakan karakter khusus yang digunakan dalam operasi pencarian atau filtrasi data. Wildcard memungkinkan pengguna untuk mencocokkan pola tertentu dalam nilai data.
+<br>
+
+| Simbol        | Penggunaan    | Contoh      |
+| :------------- |:-------------| :-------------|
+| %      | Mewakili nol, satu, atau lebih karakter |‘baju%’ akan menemukan ‘bajubiru’, ‘bajumerah’|
+| _      | Mewakili satu karakter |‘p_t’ akan menemukan ‘pat’, ‘pet’, ‘pit’, ‘pot’, ‘put’|
+| [ ]      | Merepresentasikan karakter tunggal apa pun dalam tanda kurung siku |‘p[ao]t’ akan menemukan ‘pat’ dan ‘pot’|
+| ^      | Mewakili karakter apa pun yang tidak ada di dalam tanda kurung |‘p[^ao]t’ akan menemukan pet’, ‘pit’, ‘put’, tetapi bukan ‘pat’ dan ‘pot’|
+| -      | Mewakili berbagai karakter |c[a-d] akan menemukan cat, cbt, cct, dan cdt|. Tipe data ini dapat menyimpan data biner dengan panjang hingga 65,535 byte. |
+
+```sql
+SELECT * FROM table_name WHERE column_name LIKE 'baju%';
+```
+Syntax diatas akan menghasilkan baris-baris yang memiliki nilai kolom yang dimulai dengan "baju".
+
+### 2. BETWEEN
+BETWEEN digunakan untuk mengembalikan nilai dalam suatu range.
+```sql
+SELECT column_name
+FROM table_name
+WHERE column_name BETWEEN
+value-1 AND value-2;
+```
+
+### 3. IN
+IN digunakan untuk membandingkan data dengan list yang sudah ditentukan dengan memfilter hasil berdasarkan serangkaian nilai yang cocok dengan nilai dalam daftar tertentu.
+```sql
+SELECT * FROM table_name
+WHERE column_name IN (condition-1,
+condition-2, ..., condition-n);
+```
+
+### 4. DISTINCT
+DISTINCT digunakan untuk mengembalikan nilai unik dari hasil query dengan menghilangkan record yang berisi duplikasi data pada saat data ditampilkan.
+```sql
+SELECT DISTINCT column_name FROM table_name;
+```
+
+### 5. LIMIT
+LIMIT digunakan untuk membatasi jumlah baris yang akan ditampilkan.
+```sql
+SELECT column_name FROM table_name LIMIT number;
+```
+
+### 6. IS NULL
+IS NULL digunakan untuk memeriksa suatu kolom memiliki nilai yang kosong (NULL).
+```sql
+SELECT column_name FROM table_name WHERE column_name IS NULL;
+```
+
+### 7. GROUP BY
+GROUP BY digunakan untuk mengelompokkan data sesuai dengan kriteria yang diinginkan.
+```sql
+SELECT column_name FROM table_name GROUP BY column_name;
+```
+
+### 8. ORDER BY
+ORDER BY digunakan untuk menyusun hasil query berdasarkan nilai-nilai dalam satu atau beberapa kolom. Pengurutan data dapat dilakukan secara naik (dari nilai terkecil ke terbesar) atau ascending (ASC), maupun secara menurun (dari nilai terbesar ke terkecil) atau descending (DESC).
+```sql
+SELECT column_name FROM table_name ORDER BY column_name
+ASC/DESC;
+```
+
+## I. SQL JOIN
+### 1. CROSS JOIN
+CROSS JOIN adalah jenis join yang menghasilkan hasil perkalian silang (cross product) dari dua tabel. Tabel yang dihasilkan dari CROSS JOIN akan berisi semua kombinasi baris dari kedua tabel, dan setiap baris pada tabel hasil akan mencakup semua atribut (kolom) dari tabel pertama dan tabel kedua. 
+```sql
+SELECT * FROM tabel-1 AS nama_alias-1 CROSS JOIN tabel-2 AS nama_alias-2;
+```
+
+### 2. RIGHT JOIN
+RIGHT JOIN merupakan jenis join yang mengambil semua baris dari tabel kanan dan baris yang sesuai dari tabel kiri. Jika tidak ada kecocokan, kolom dari tabel kiri akan berisi nilai NULL.
+
+
+
+
+
 
 
 
