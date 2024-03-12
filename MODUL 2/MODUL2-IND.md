@@ -57,56 +57,110 @@ Operator LIKE digunakan bersama dengan syntax WHERE untuk mencari pola yang dite
 - _  Digunakan untuk hanya satu karakter, yang berarti panjangnya tetap.
 
 ## D. OPERASI HIMPUNAN
-## 1. UNION (∪)
-UNION merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **tanpa mengembalikan nilai duplikat.** Ada beberapa aturan untuk menggunakan UNION yaitu kolom pada tabel yang digabungkan harus memiliki jumlah dan tipe data yang sama selain itu urutan kolom pada tabel yang digabungkan juga harus sama. Berikut merupakan syntax dari operator UNION : 
-
-
+### 1. UNION (∪)
+UNION merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **tanpa mengembalikan nilai duplikat.** Ada beberapa aturan untuk menggunakan UNION yaitu kolom pada tabel yang digabungkan harus memiliki jumlah dan tipe data yang sama selain itu urutan kolom pada tabel yang digabungkan juga harus sama. Berikut merupakan syntax dari operator UNION : <br>
 **SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi
-
-
+<br>
 **UNION**
-
-
+<br>
 **SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi;
 
 
-UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL :
-
-
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi
-
-
+UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL : <br>
+**SELECT** kolom-1, kolom-2, …, kolom-n 
+<br>
+**FROM** nama_tabel 
+<br>
+**WHERE** kondisi
+<br>
+<br>
 **UNION ALL**
-
-
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi;
+<br>
+<br>
+**SELECT** kolom-1, kolom-2, …, kolom-n 
+<br>
+**FROM** nama_tabel 
+<br>
+**WHERE** kondisi;
 
 ### 2. INTERSECT (∩)
-INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT :
-
-
+INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT : <br>
 **SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel 
-
-
+<br>
 **WHERE** nama_kolom **IN** (
+<br>
+**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel);
 
 
-**SELECT** kolom-1, kolom-2, …, kolom-n
-**FROM** nama_tabel);
-
-
-## 3. EXCEPT (-)
+### 3. EXCEPT (-)
 EXCEPT merupakan operator yang hanya mengembalikan data unik atau eksklusif pada tabel pertama tetapi yang tidak ada pada tabel kedua. Yang dimaksud data unik atau eksklusif tersebut yaitu tidak ada yang menyamai datanya pada tabel kedua. Berikut merupakan syntax dari EXCEPT :
-
-
+<br>
+<br>
 **SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel
-
-
+<br>
 **WHERE** nama_kolom **NOT IN** (
+<br>
+**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel);
+
+## E. OPERATOR ARITMATIKA
+### 1. Penjumlahan (+)
+Penjumlahan digunakan untuk menambahkan dua nilai.
+
+### 2. Pengurangan (-)
+Pengurangan digunakan untuk mengurangkan satu nilai dari nilai lainnya.
+
+### 3. Perkalian (*)
+Perkalian digunakan untuk mengalikan dua nilai.
+
+### 4. Pembagian (/)
+Pembagian digunakan untuk membagi satu nilai dengan nilai lainnya.
+
+### 5. Modulus (%)
+Modulus digunakan untuk mendapatkan sisa hasil bagi dari kedua nilai.
+
+## F. OPERATOR AGREGASI
+Operator Agregasi atau biasa dikenal fungsi agregat merupakan operator yang digunakan untuk meringkas data dalam sebuah tabel. Operator ini dapat digunakan dalam berbagai pernyataan DML, seperti SELECT, GROUP BY, dll.
+<br> Berikut merupakan contoh dari penggunaan operator agregasi di SQL : 
+### 1. SUM
+SUM digunakan untuk menghitung total nilai dalam satu kolom.
+<br>
+**SELECT SUM**(nama_kolom)
+<br>
+**FROM** nama_tabel;
+
+### 2. AVG
+AVG digunakan untuk menghitung rata-rata nilai dalam satu kolom.
+<br>
+**SELECT AVG**(nama_kolom)
+<br>
+**FROM** nama_tabel;
+
+### 3. MIN
+MIN digunakan untuk mencari nilai minimum pada suatu kolom.
+<br>
+**SELECT MIN**(nama_kolom)
+<br>
+**FROM** nama_tabel;
+
+### 4. MAX
+MAX digunakan untuk mencari nilai maksimum pada suatu kolom.
+<br>
+**SELECT MAX**(nama_kolom)
+<br>
+**FROM** nama_tabel;
+
+### 5. COUNT
+COUNT digunakan untuk menghitung jumlah baris yang ada pada tabel.
+<br>
+**SELECT COUNT**(nama_kolom)
+<br>
+**FROM** nama_tabel;
 
 
-**SELECT** kolom-1, kolom-2, …, kolom-n
-**FROM** nama_tabel);
+
+
+
+
 
 
 
