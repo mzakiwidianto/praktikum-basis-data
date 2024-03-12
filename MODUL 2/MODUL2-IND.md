@@ -9,7 +9,7 @@ Dengan menggunakan perintah DML, pengguna dapat memastikan bahwa data yang disim
 ### 1. SELECT
 SELECT merupakan perintah DML yang digunakan untuk memilih dan 
 menampilkan nilai yang ada pada tabel. 
-Berikut merupakan syntax penulisan untuk perintah SELECT :
+Berikut merupakan syntax penulisan untuk perintah SELECT:
 - **Menampilkan seluruh data** 
 - **Menampilkan data pada kolom tertentu** 
 - **Menampilkan data kondisi tertentu** 
@@ -57,56 +57,208 @@ Operator LIKE digunakan bersama dengan syntax WHERE untuk mencari pola yang dite
 - _  Digunakan untuk hanya satu karakter, yang berarti panjangnya tetap.
 
 ## D. OPERASI HIMPUNAN
-## 1. UNION (∪)
+### 1. UNION (∪)
 UNION merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **tanpa mengembalikan nilai duplikat.** Ada beberapa aturan untuk menggunakan UNION yaitu kolom pada tabel yang digabungkan harus memiliki jumlah dan tipe data yang sama selain itu urutan kolom pada tabel yang digabungkan juga harus sama. Berikut merupakan syntax dari operator UNION : 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi
+
+UNION
+
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi;
+```
 
 
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi
+UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL : 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi
 
+UNION ALL
 
-**UNION**
-
-
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi;
-
-
-UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL :
-
-
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi
-
-
-**UNION ALL**
-
-
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi;
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi;
+```
 
 ### 2. INTERSECT (∩)
-INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT :
+INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT : 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel 
+WHERE nama_kolom IN (
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel);
+```
 
 
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel 
-
-
-**WHERE** nama_kolom **IN** (
-
-
-**SELECT** kolom-1, kolom-2, …, kolom-n
-**FROM** nama_tabel);
-
-
-## 3. EXCEPT (-)
+### 3. EXCEPT (-)
 EXCEPT merupakan operator yang hanya mengembalikan data unik atau eksklusif pada tabel pertama tetapi yang tidak ada pada tabel kedua. Yang dimaksud data unik atau eksklusif tersebut yaitu tidak ada yang menyamai datanya pada tabel kedua. Berikut merupakan syntax dari EXCEPT :
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE nama_kolom NOT IN(
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel);
+```
+
+## E. OPERATOR ARITMATIKA
+### 1. Penjumlahan (+)
+Penjumlahan digunakan untuk menambahkan dua nilai.
+
+### 2. Pengurangan (-)
+Pengurangan digunakan untuk mengurangkan satu nilai dari nilai lainnya.
+
+### 3. Perkalian (*)
+Perkalian digunakan untuk mengalikan dua nilai.
+
+### 4. Pembagian (/)
+Pembagian digunakan untuk membagi satu nilai dengan nilai lainnya.
+
+### 5. Modulus (%)
+Modulus digunakan untuk mendapatkan sisa hasil bagi dari kedua nilai.
+
+## F. OPERATOR AGREGASI
+Operator Agregasi atau biasa dikenal fungsi agregat merupakan operator yang digunakan untuk meringkas data dalam sebuah tabel. Operator ini dapat digunakan dalam berbagai pernyataan DML, seperti SELECT, GROUP BY, dll.
+<br> Berikut merupakan contoh dari penggunaan operator agregasi di SQL : 
+### 1. SUM
+SUM digunakan untuk menghitung total nilai dalam satu kolom.
+```sql
+SELECT SUM(nama_kolom) FROM nama_tabel;
+```
+
+### 2. AVG
+AVG digunakan untuk menghitung rata-rata nilai dalam satu kolom.
+```sql
+SELECT AVG(nama_kolom) FROM nama_tabel;
+```
+### 3. MIN
+MIN digunakan untuk mencari nilai minimum pada suatu kolom.
+```sql
+SELECT MIN(nama_kolom) FROM nama_tabel;
+```
+
+### 4. MAX
+MAX digunakan untuk mencari nilai maksimum pada suatu kolom.
+```sql
+SELECT MAX(nama_kolom) FROM nama_tabel;
+```
+
+### 5. COUNT
+COUNT digunakan untuk menghitung jumlah baris yang ada pada tabel.
+```sql
+SELECT COUNT(nama_kolom) FROM nama_tabel;
+```
+
+## G. SUBQUERY
+Subquery, yang juga dikenal sebagai nested query atau subselect, ialah bentuk query yang terdapat dalam query lain yang tertanam klausa SELECT, WHERE, atau FROM. Fungsi dari subquery adalah menghasilkan data yang akan digunakan dalam query utama untuk membatasi atau menyaring data yang akan diambil. Subquery digunakan untuk memberikan kondisi atau kriteria tambahan dalam proses pengambilan data. Berikut beberapa aturan dalam penggunaan subquery:
+- Subquery harus diapit dalam tanda kurung.
+- Penggunaan klausa ORDER BY tidak diperbolehkan dalam subquery. Klausa ORDER BY dapat digunakan dalam pernyataan SELECT utama.
+- Klausa SELECT dalam subquery harus berisi satu nama kolom tunggal atau ekspresi, kecuali untuk subquery menggunakan kata kunci EXISTS.
+- Secara default, nama kolom dalam subquery mengacu pada nama tabel dalam klausa FROM di query utama dengan cara mengkualifikasi nama kolom.
+- Subquery tidak boleh digunakan sebagai operan dalam ekspresi.
+```sql
+SELECT nama_kolom
+FROM nama_table
+WHERE nama_kolom operator
+      (SELECT nama_kolom
+      FROM nama_table
+      WHERE nama_kolom operator);
+```
+
+## H. OPERATOR PEMBANDING
+### 1. Wildcard
+Wildcard merupakan karakter khusus yang digunakan dalam operasi pencarian atau filtrasi data. Wildcard memungkinkan pengguna untuk mencocokkan pola tertentu dalam nilai data.
+<br>
+
+| Simbol        | Penggunaan    | Contoh      |
+| :------------- |:-------------| :-------------|
+| %      | Mewakili nol, satu, atau lebih karakter |‘baju%’ akan menemukan ‘bajubiru’, ‘bajumerah’|
+| _      | Mewakili satu karakter |‘p_t’ akan menemukan ‘pat’, ‘pet’, ‘pit’, ‘pot’, ‘put’|
+| [ ]      | Merepresentasikan karakter tunggal apa pun dalam tanda kurung siku |‘p[ao]t’ akan menemukan ‘pat’ dan ‘pot’|
+| ^      | Mewakili karakter apa pun yang tidak ada di dalam tanda kurung |‘p[^ao]t’ akan menemukan pet’, ‘pit’, ‘put’, tetapi bukan ‘pat’ dan ‘pot’|
+| -      | Mewakili berbagai karakter |c[a-d] akan menemukan cat, cbt, cct, dan cdt|. Tipe data ini dapat menyimpan data biner dengan panjang hingga 65,535 byte. |
+
+```sql
+SELECT * FROM table_name WHERE column_name LIKE 'baju%';
+```
+Syntax diatas akan menghasilkan baris-baris yang memiliki nilai kolom yang dimulai dengan "baju".
+
+### 2. BETWEEN
+BETWEEN digunakan untuk mengembalikan nilai dalam suatu range.
+```sql
+SELECT column_name
+FROM table_name
+WHERE column_name BETWEEN
+value-1 AND value-2;
+```
+
+### 3. IN
+IN digunakan untuk membandingkan data dengan list yang sudah ditentukan dengan memfilter hasil berdasarkan serangkaian nilai yang cocok dengan nilai dalam daftar tertentu.
+```sql
+SELECT * FROM table_name
+WHERE column_name IN (condition-1,
+condition-2, ..., condition-n);
+```
+
+### 4. DISTINCT
+DISTINCT digunakan untuk mengembalikan nilai unik dari hasil query dengan menghilangkan record yang berisi duplikasi data pada saat data ditampilkan.
+```sql
+SELECT DISTINCT column_name FROM table_name;
+```
+
+### 5. LIMIT
+LIMIT digunakan untuk membatasi jumlah baris yang akan ditampilkan.
+```sql
+SELECT column_name FROM table_name LIMIT number;
+```
+
+### 6. IS NULL
+IS NULL digunakan untuk memeriksa suatu kolom memiliki nilai yang kosong (NULL).
+```sql
+SELECT column_name FROM table_name WHERE column_name IS NULL;
+```
+
+### 7. GROUP BY
+GROUP BY digunakan untuk mengelompokkan data sesuai dengan kriteria yang diinginkan.
+```sql
+SELECT column_name FROM table_name GROUP BY column_name;
+```
+
+### 8. ORDER BY
+ORDER BY digunakan untuk menyusun hasil query berdasarkan nilai-nilai dalam satu atau beberapa kolom. Pengurutan data dapat dilakukan secara naik (dari nilai terkecil ke terbesar) atau ascending (ASC), maupun secara menurun (dari nilai terbesar ke terkecil) atau descending (DESC).
+```sql
+SELECT column_name FROM table_name ORDER BY column_name
+ASC/DESC;
+```
+
+## I. SQL JOIN
+### 1. CROSS JOIN
+CROSS JOIN adalah jenis join yang menghasilkan hasil perkalian silang (cross product) dari dua tabel. Tabel yang dihasilkan dari CROSS JOIN akan berisi semua kombinasi baris dari kedua tabel, dan setiap baris pada tabel hasil akan mencakup semua atribut (kolom) dari tabel pertama dan tabel kedua. 
+```sql
+SELECT * FROM tabel-1 AS nama_alias-1 CROSS JOIN tabel-2 AS nama_alias-2;
+```
+
+### 2. RIGHT JOIN
+RIGHT JOIN merupakan jenis join yang mengambil semua baris dari tabel kanan dan baris yang sesuai dari tabel kiri. Jika tidak ada kecocokan, kolom dari tabel kiri akan berisi nilai NULL.
 
 
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel
 
 
-**WHERE** nama_kolom **NOT IN** (
 
 
-**SELECT** kolom-1, kolom-2, …, kolom-n
-**FROM** nama_tabel);
+
+
+
+
+
+
+
+
 
 
 
