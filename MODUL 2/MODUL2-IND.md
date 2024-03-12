@@ -122,7 +122,7 @@ FROM nama_tabel);
 ### 1. Penjumlahan (+)
 Penjumlahan digunakan untuk menambahkan dua nilai.
 ```sql
-SELECT kolom1, kolom2, kolom2  +  bilangan FROM nama_tabel;
+SELECT kolom1, kolom2, kolom2 + bilangan FROM nama_tabel;
 ```
 <p align="center">
 <img src="img_basdat/penjumlahan.png">
@@ -131,7 +131,7 @@ SELECT kolom1, kolom2, kolom2  +  bilangan FROM nama_tabel;
 ### 2. Pengurangan (-)
 Pengurangan digunakan untuk mengurangkan satu nilai dari nilai lainnya.
 ```sql
-SELECT kolom1, kolom2, kolom2  -  bilangan FROM nama_tabel;
+SELECT kolom1, kolom2, kolom2 - bilangan FROM nama_tabel;
 ```
 <p align="center">
 <img src="img_basdat/pengurangan.png">
@@ -140,7 +140,7 @@ SELECT kolom1, kolom2, kolom2  -  bilangan FROM nama_tabel;
 ### 3. Perkalian (*)
 Perkalian digunakan untuk mengalikan dua nilai.
 ```sql
-SELECT kolom1, kolom2, kolom2  *  bilangan FROM nama_tabel;
+SELECT kolom1, kolom2, kolom2 * bilangan FROM nama_tabel;
 ```
 <p align="center">
 <img src="img_basdat/perkalian.png">
@@ -149,7 +149,7 @@ SELECT kolom1, kolom2, kolom2  *  bilangan FROM nama_tabel;
 ### 4. Pembagian (/)
 Pembagian digunakan untuk membagi satu nilai dengan nilai lainnya.
 ```sql
-SELECT kolom1, kolom2, kolom2  /  bilangan FROM nama_tabel;
+SELECT kolom1, kolom2, kolom2 / bilangan FROM nama_tabel;
 ```
 <p align="center">
 <img src="img_basdat/pembagian.png">
@@ -158,7 +158,7 @@ SELECT kolom1, kolom2, kolom2  /  bilangan FROM nama_tabel;
 ### 5. Modulus (%)
 Modulus digunakan untuk mendapatkan sisa hasil bagi dari kedua nilai.
 ```sql
-SELECT kolom1, kolom2, kolom2  %  bilangan FROM nama_tabel;
+SELECT kolom1, kolom2, kolom2 % bilangan FROM nama_tabel;
 ```
 <p align="center">
 <img src="img_basdat/modulus.png">
@@ -172,29 +172,45 @@ SUM digunakan untuk menghitung total nilai dalam satu kolom.
 ```sql
 SELECT SUM(nama_kolom) FROM nama_tabel;
 ```
+<p align="center">
+<img src="img_basdat/sum.png">
+</p>
 
 ### 2. AVG
 AVG digunakan untuk menghitung rata-rata nilai dalam satu kolom.
 ```sql
 SELECT AVG(nama_kolom) FROM nama_tabel;
 ```
+<p align="center">
+<img src="img_basdat/avg.png">
+</p>
+
 ### 3. MIN
 MIN digunakan untuk mencari nilai minimum pada suatu kolom.
 ```sql
 SELECT MIN(nama_kolom) FROM nama_tabel;
 ```
+<p align="center">
+<img src="img_basdat/min.png">
+</p>
 
 ### 4. MAX
 MAX digunakan untuk mencari nilai maksimum pada suatu kolom.
 ```sql
 SELECT MAX(nama_kolom) FROM nama_tabel;
 ```
+<p align="center">
+<img src="img_basdat/max.png">
+</p>
 
 ### 5. COUNT
 COUNT digunakan untuk menghitung jumlah baris yang ada pada tabel.
 ```sql
 SELECT COUNT(nama_kolom) FROM nama_tabel;
 ```
+<p align="center">
+<img src="img_basdat/count.png">
+</p>
 
 ## G. SUBQUERY
 Subquery, yang juga dikenal sebagai nested query atau subselect, ialah bentuk query yang terdapat dalam query lain yang tertanam klausa SELECT, WHERE, atau FROM. Fungsi dari subquery adalah menghasilkan data yang akan digunakan dalam query utama untuk membatasi atau menyaring data yang akan diambil. Subquery digunakan untuk memberikan kondisi atau kriteria tambahan dalam proses pengambilan data. Berikut beberapa aturan dalam penggunaan subquery:
@@ -287,6 +303,55 @@ SELECT * FROM tabel-1 AS nama_alias-1 CROSS JOIN tabel-2 AS nama_alias-2;
 
 ### 2. RIGHT JOIN
 RIGHT JOIN merupakan jenis join yang mengambil semua baris dari tabel kanan dan baris yang sesuai dari tabel kiri. Jika tidak ada kecocokan, kolom dari tabel kiri akan berisi nilai NULL.
+
+```sql
+SELECT kolom-1, kolom-2, .., kolom-n
+FROM tabel-1
+RIGHT JOIN tabel-2
+ON tabel-1.nama_kolom = tabel-2.nama_kolom;
+```
+
+### 3. LEFT JOIN
+LEFT JOIN mengambil semua baris dari tabel kiri dan baris yang sesuai dari tabel kanan. Jika tidak ada kecocokan, kolom dari tabel kanan akan berisi nilai NULL.
+
+```sql
+SELECT kolom-1, kolom-2, .., kolom-n
+FROM tabel-1
+LEFT JOIN tabel-2
+ON tabel-1.nama_kolom = tabel-2.nama_kolom;
+```
+
+### 4. INNER JOIN
+INNER JOIN mengambil baris dari kedua tabel yang memiliki nilai yang sesuai berdasarkan kondisi yang diberikan. Baris yang tidak memiliki kecocokan diabaikan.
+
+```sql
+SELECT a.nama_kolom-1, b.nama_kolom-2
+FROM nama_tabel-1 a
+JOIN nama_tabel-2 b
+ON a.nama_kolom = b.nama_kolom;
+```
+atau dapat menggunakan klausa WHERE sebagai berikut:
+```sql
+SELECT a.nama_kolom-1, b.nama_kolom-2
+FROM tabel-1 a, tabel-2 b
+WHERE a.nama_kolom = b.nama_kolom;
+```
+dengan keterangan:
+- a merupakan nama lain dari tabel 1
+- b merupakan nama lain dari tabel 2
+- ON digunakan untuk mengakses key dari tiap tabel dengan menghubungkan kedua tabel dengan menyebutkan kolom yang sama pada masing-masing tabel
+
+
+## J. CARA IMPORT DATABASE
+> 1. Siapkan file database dalam format .sql yang akan diimpor.
+> 2. Buka phpMyAdmin.
+> 3. Buat sebuah database baru.
+> 4. Pilih tab 'Import' dan selanjutnya pilih file .sql yang akan diimpor.
+> 5. Tekan tombol 'Import' yang berada di bagian bawah halaman.
+> 6. Jika muncul pemberitahuan sukses, proses impor database telah berhasil dilakukan.
+
+
+
 
 
 
