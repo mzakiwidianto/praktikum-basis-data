@@ -227,6 +227,28 @@ WHERE nama_kolom operator
       FROM nama_table
       WHERE nama_kolom operator);
 ```
+Berikut merupakan contoh penggunaan Subquery :
+<br> Database data_mahasiswa terdiri atas tiga tabel, yakni mahasiswa, nilai_mahasiswa, dan mata_kuliah.
+<p align="center">
+<img src="img_basdat/01Tabel_Mahasiswa.png" width="310">
+      <img src="img_basdat/02Tabel_Nilai.png" width ="310">
+      <img src="img_basdat/03Tabel_MK.png" width = "310">
+</p>
+Subquery yang digunakan:
+```sql
+SELECT nama
+FROM mahasiswa
+WHERE nim IN
+      (SELECT nim_mahasiswa
+       FROM nilai_mahasiswa
+       WHERE nilai > 80 AND kode_mata_kuliah = 'mk001');
+```
+Query tersebut digunakan untuk mengambil nama mahasiswa dari tabel "mahasiswa" yang memenuhi kondisi tertentu. Subquery di dalamnya berfungsi untuk mencari NIM mahasiswa dari tabel "nilai_mahasiswa" yang memiliki nilai di atas 80 dan memiliki kode mata kuliah 'mk001'. Hasil dari subquery ini, yaitu NIM mahasiswa yang memenuhi kondisi tersebut, kemudian digunakan sebagai kriteria dalam query utama. Dengan menggunakan klausa WHERE dan operator IN, query utama mengekstrak nama mahasiswa yang memiliki NIM sesuai dengan hasil subquery. Dengan demikian, hasil akhir dari query tersebut adalah daftar nama mahasiswa yang memenuhi syarat nilai di atas 80 pada mata kuliah 'mk001' seperti berikut.
+<p align="center">
+<img src="img_basdat/04Hasil_Subquery.png" width="100">
+</p>
+
+
 
 ## H. OPERATOR PEMBANDING
 ### 1. Wildcard
@@ -288,11 +310,12 @@ SELECT column_name FROM table_name GROUP BY column_name;
 ```
 
 ### 8. ORDER BY
-ORDER BY digunakan untuk menyusun hasil query berdasarkan nilai-nilai dalam satu atau beberapa kolom. Pengurutan data dapat dilakukan secara naik (dari nilai terkecil ke terbesar) atau ascending (ASC), maupun secara menurun (dari nilai terbesar ke terkecil) atau descending (DESC).
+ORDER BY digunakan untuk menyusun hasil query berdasarkan nilai-nilai dalam satu atau beberapa kolom. Pengurutan data dapat dilakukan secara naik (dari nilai terkecil ke terbesar) atau <i> ascending </i> **(ASC)**, maupun secara menurun (dari nilai terbesar ke terkecil) atau <i> descending</i> **(DESC)**.
 ```sql
 SELECT column_name FROM table_name ORDER BY column_name
 ASC/DESC;
 ```
+
 
 ## I. SQL JOIN
 ### 1. CROSS JOIN
@@ -300,6 +323,16 @@ CROSS JOIN adalah jenis join yang menghasilkan hasil perkalian silang (cross pro
 ```sql
 SELECT * FROM tabel-1 AS nama_alias-1 CROSS JOIN tabel-2 AS nama_alias-2;
 ```
+Contoh:
+```sql
+SELECT *
+FROM mahasiswa AS tb_mahasiswa
+CROSS JOIN mata_kuliah AS tb_mk;
+```
+<p align="center">
+<img src="img_basdat/05Hasil_CrossJoin.png">
+</p>
+
 
 ### 2. RIGHT JOIN
 RIGHT JOIN merupakan jenis join yang mengambil semua baris dari tabel kanan dan baris yang sesuai dari tabel kiri. Jika tidak ada kecocokan, kolom dari tabel kiri akan berisi nilai NULL.
@@ -310,6 +343,20 @@ FROM tabel-1
 RIGHT JOIN tabel-2
 ON tabel-1.nama_kolom = tabel-2.nama_kolom;
 ```
+<p align="center">
+<img src="img_basdat/06RIGHT_JOIN.png">
+</p>
+
+Contoh:
+```sql
+SELECT mahasiswa.nim, mahasiswa.nama, nilai_mahasiswa.kode_mata_kuliah, nilai_mahasiswa.nilai
+FROM mahasiswa
+RIGHT JOIN nilai_mahasiswa 
+ON mahasiswa.nim = nilai_mahasiswa.nim_mahasiswa;
+```
+<p align="center">
+<img src="img_basdat/07Hasil_rightjoin.png">     
+</p>
 
 ### 3. LEFT JOIN
 LEFT JOIN mengambil semua baris dari tabel kiri dan baris yang sesuai dari tabel kanan. Jika tidak ada kecocokan, kolom dari tabel kanan akan berisi nilai NULL.
@@ -320,9 +367,24 @@ FROM tabel-1
 LEFT JOIN tabel-2
 ON tabel-1.nama_kolom = tabel-2.nama_kolom;
 ```
+<p align="center">
+      <img src="img_basdat/08LEFT_JOIN.png">
+</p>
+
+Contoh:
+```sql
+SELECT mahasiswa.nim, mahasiswa.nama, nilai_mahasiswa.kode_mata_kuliah, nilai_mahasiswa.nilai
+FROM mahasiswa
+LEFT JOIN nilai_mahasiswa 
+ON mahasiswa.nim = nilai_mahasiswa.nim_mahasiswa;
+```
+<p align="center">
+      <img src="img_basdat/09Hasil_leftjoin.png">
+</p>
 
 ### 4. INNER JOIN
 INNER JOIN mengambil baris dari kedua tabel yang memiliki nilai yang sesuai berdasarkan kondisi yang diberikan. Baris yang tidak memiliki kecocokan diabaikan.
+
 
 ```sql
 SELECT a.nama_kolom-1, b.nama_kolom-2
