@@ -70,6 +70,9 @@ SELECT kolom-1, kolom-2, …, kolom-n
 FROM nama_tabel
 WHERE kondisi;
 ```
+<p align="center">
+<img src="img_basdat/union.png">
+</p>
 
 
 UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL : 
@@ -84,6 +87,9 @@ SELECT kolom-1, kolom-2, …, kolom-n
 FROM nama_tabel
 WHERE kondisi;
 ```
+<p align="center">
+<img src="img_basdat/union%20all.png">
+</p>
 
 ### 2. INTERSECT (∩)
 INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT : 
@@ -94,6 +100,9 @@ WHERE nama_kolom IN (
 SELECT kolom-1, kolom-2, …, kolom-n
 FROM nama_tabel);
 ```
+<p align="center">
+<img src="img_basdat/intersect.png">
+</p>
 
 
 ### 3. EXCEPT (-)
@@ -105,22 +114,55 @@ WHERE nama_kolom NOT IN(
 SELECT kolom-1, kolom-2, …, kolom-n
 FROM nama_tabel);
 ```
+<p align="center">
+<img src="img_basdat/except.png">
+</p>
 
 ## E. OPERATOR ARITMATIKA
 ### 1. Penjumlahan (+)
 Penjumlahan digunakan untuk menambahkan dua nilai.
+```sql
+SELECT kolom1, kolom2, kolom2  +  bilangan FROM nama_tabel;
+```
+<p align="center">
+<img src="img_basdat/penjumlahan.png">
+</p>
 
 ### 2. Pengurangan (-)
 Pengurangan digunakan untuk mengurangkan satu nilai dari nilai lainnya.
+```sql
+SELECT kolom1, kolom2, kolom2  -  bilangan FROM nama_tabel;
+```
+<p align="center">
+<img src="img_basdat/pengurangan.png">
+</p>
 
 ### 3. Perkalian (*)
 Perkalian digunakan untuk mengalikan dua nilai.
+```sql
+SELECT kolom1, kolom2, kolom2  *  bilangan FROM nama_tabel;
+```
+<p align="center">
+<img src="img_basdat/perkalian.png">
+</p>
 
 ### 4. Pembagian (/)
 Pembagian digunakan untuk membagi satu nilai dengan nilai lainnya.
+```sql
+SELECT kolom1, kolom2, kolom2  /  bilangan FROM nama_tabel;
+```
+<p align="center">
+<img src="img_basdat/pembagian.png">
+</p>
 
 ### 5. Modulus (%)
 Modulus digunakan untuk mendapatkan sisa hasil bagi dari kedua nilai.
+```sql
+SELECT kolom1, kolom2, kolom2  %  bilangan FROM nama_tabel;
+```
+<p align="center">
+<img src="img_basdat/modulus.png">
+</p>
 
 ## F. OPERATOR AGREGASI
 Operator Agregasi atau biasa dikenal fungsi agregat merupakan operator yang digunakan untuk meringkas data dalam sebuah tabel. Operator ini dapat digunakan dalam berbagai pernyataan DML, seperti SELECT, GROUP BY, dll.
