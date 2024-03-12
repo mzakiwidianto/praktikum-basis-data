@@ -9,7 +9,7 @@ Dengan menggunakan perintah DML, pengguna dapat memastikan bahwa data yang disim
 ### 1. SELECT
 SELECT merupakan perintah DML yang digunakan untuk memilih dan 
 menampilkan nilai yang ada pada tabel. 
-Berikut merupakan syntax penulisan untuk perintah SELECT :
+Berikut merupakan syntax penulisan untuk perintah SELECT:
 - **Menampilkan seluruh data** 
 - **Menampilkan data pada kolom tertentu** 
 - **Menampilkan data kondisi tertentu** 
@@ -58,49 +58,53 @@ Operator LIKE digunakan bersama dengan syntax WHERE untuk mencari pola yang dite
 
 ## D. OPERASI HIMPUNAN
 ### 1. UNION (∪)
-UNION merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **tanpa mengembalikan nilai duplikat.** Ada beberapa aturan untuk menggunakan UNION yaitu kolom pada tabel yang digabungkan harus memiliki jumlah dan tipe data yang sama selain itu urutan kolom pada tabel yang digabungkan juga harus sama. Berikut merupakan syntax dari operator UNION : <br>
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi
-<br>
-**UNION**
-<br>
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel **WHERE** kondisi;
+UNION merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **tanpa mengembalikan nilai duplikat.** Ada beberapa aturan untuk menggunakan UNION yaitu kolom pada tabel yang digabungkan harus memiliki jumlah dan tipe data yang sama selain itu urutan kolom pada tabel yang digabungkan juga harus sama. Berikut merupakan syntax dari operator UNION : 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi
+
+UNION
+
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi;
+```
 
 
-UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL : <br>
-**SELECT** kolom-1, kolom-2, …, kolom-n 
-<br>
-**FROM** nama_tabel 
-<br>
-**WHERE** kondisi
-<br>
-<br>
-**UNION ALL**
-<br>
-<br>
-**SELECT** kolom-1, kolom-2, …, kolom-n 
-<br>
-**FROM** nama_tabel 
-<br>
-**WHERE** kondisi;
+UNION ALL merupakan operator yang mengembalikan nilai dari dua tabel atau lebih dengan menggabungkan perintah SELECT **dengan mengembalikan nilai duplikatnya.** Perbedaan UNION dan UNION ALL terletak pada pengembalian nilainya jika UNION tidak mengembalikan nilai duplikatnya sedangkan UNION ALL mengembalikan nilai duplikatnya. Berikut merupakan syntax dari UNION ALL : 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi
+
+UNION ALL
+
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi;
+```
 
 ### 2. INTERSECT (∩)
-INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT : <br>
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel 
-<br>
-**WHERE** nama_kolom **IN** (
-<br>
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel);
+INTERSECT merupakan operator yang mengambil irisan dari dua perintah SELECT. Berikut merupakan syntax dari INTERSECT : 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel 
+WHERE nama_kolom IN (
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel);
+```
 
 
 ### 3. EXCEPT (-)
 EXCEPT merupakan operator yang hanya mengembalikan data unik atau eksklusif pada tabel pertama tetapi yang tidak ada pada tabel kedua. Yang dimaksud data unik atau eksklusif tersebut yaitu tidak ada yang menyamai datanya pada tabel kedua. Berikut merupakan syntax dari EXCEPT :
-<br>
-<br>
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel
-<br>
-**WHERE** nama_kolom **NOT IN** (
-<br>
-**SELECT** kolom-1, kolom-2, …, kolom-n **FROM** nama_tabel);
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE nama_kolom NOT IN(
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel);
+```
 
 ## E. OPERATOR ARITMATIKA
 ### 1. Penjumlahan (+)
@@ -123,38 +127,55 @@ Operator Agregasi atau biasa dikenal fungsi agregat merupakan operator yang digu
 <br> Berikut merupakan contoh dari penggunaan operator agregasi di SQL : 
 ### 1. SUM
 SUM digunakan untuk menghitung total nilai dalam satu kolom.
-<br>
-**SELECT SUM**(nama_kolom)
-<br>
-**FROM** nama_tabel;
+```sql
+SELECT SUM(nama_kolom) FROM nama_tabel;
+```
 
 ### 2. AVG
 AVG digunakan untuk menghitung rata-rata nilai dalam satu kolom.
-<br>
-**SELECT AVG**(nama_kolom)
-<br>
-**FROM** nama_tabel;
-
+```sql
+SELECT AVG(nama_kolom) FROM nama_tabel;
+```
 ### 3. MIN
 MIN digunakan untuk mencari nilai minimum pada suatu kolom.
-<br>
-**SELECT MIN**(nama_kolom)
-<br>
-**FROM** nama_tabel;
+```sql
+SELECT MIN(nama_kolom) FROM nama_tabel;
+```
 
 ### 4. MAX
 MAX digunakan untuk mencari nilai maksimum pada suatu kolom.
-<br>
-**SELECT MAX**(nama_kolom)
-<br>
-**FROM** nama_tabel;
+```sql
+SELECT MAX(nama_kolom) FROM nama_tabel;
+```
 
 ### 5. COUNT
 COUNT digunakan untuk menghitung jumlah baris yang ada pada tabel.
-<br>
-**SELECT COUNT**(nama_kolom)
-<br>
-**FROM** nama_tabel;
+```sql
+SELECT COUNT(nama_kolom) FROM nama_tabel;
+```
+
+## G. SUBQUERY
+Subquery, yang juga dikenal sebagai nested query atau subselect, ialah bentuk query yang terdapat dalam query lain yang tertanam klausa SELECT, WHERE, atau FROM. Fungsi dari subquery adalah menghasilkan data yang akan digunakan dalam query utama untuk membatasi atau menyaring data yang akan diambil. Subquery digunakan untuk memberikan kondisi atau kriteria tambahan dalam proses pengambilan data. Berikut beberapa aturan dalam penggunaan subquery:
+- Subquery harus diapit dalam tanda kurung.
+- Penggunaan klausa ORDER BY tidak diperbolehkan dalam subquery. Klausa ORDER BY dapat digunakan dalam pernyataan SELECT utama.
+- Klausa SELECT dalam subquery harus berisi satu nama kolom tunggal atau ekspresi, kecuali untuk subquery menggunakan kata kunci EXISTS.
+- Secara default, nama kolom dalam subquery mengacu pada nama tabel dalam klausa FROM di query utama dengan cara mengkualifikasi nama kolom.
+- Subquery tidak boleh digunakan sebagai operan dalam ekspresi.
+```sql
+SELECT nama_kolom
+FROM nama_table
+WHERE nama_kolom operator
+      (SELECT nama_kolom
+      FROM nama_table
+      WHERE nama_kolom operator);
+```
+
+## H. OPERATOR PEMBANDING
+### 1. Wildcard
+Wildcard merupakan karakter khusus yang digunakan dalam operasi pencarian atau filtrasi data. Wildcard memungkinkan pengguna untuk mencocokkan pola tertentu dalam nilai data.
+
+
+
 
 
 
