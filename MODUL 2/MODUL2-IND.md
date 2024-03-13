@@ -384,7 +384,9 @@ ON mahasiswa.nim = nilai_mahasiswa.nim_mahasiswa;
 
 ### 4. INNER JOIN
 INNER JOIN mengambil baris dari kedua tabel yang memiliki nilai yang sesuai berdasarkan kondisi yang diberikan. Baris yang tidak memiliki kecocokan diabaikan.
-
+<p align="center">
+      <img src="img_basdat/10INNER_JOIN.png">
+</p>
 
 ```sql
 SELECT a.nama_kolom-1, b.nama_kolom-2
@@ -393,15 +395,29 @@ JOIN nama_tabel-2 b
 ON a.nama_kolom = b.nama_kolom;
 ```
 atau dapat menggunakan klausa WHERE sebagai berikut:
+
 ```sql
 SELECT a.nama_kolom-1, b.nama_kolom-2
 FROM tabel-1 a, tabel-2 b
 WHERE a.nama_kolom = b.nama_kolom;
 ```
+
 dengan keterangan:
 - a merupakan nama lain dari tabel 1
 - b merupakan nama lain dari tabel 2
 - ON digunakan untuk mengakses key dari tiap tabel dengan menghubungkan kedua tabel dengan menyebutkan kolom yang sama pada masing-masing tabel
+
+Contoh:
+```sql
+SELECT tb_nilai.nim_mahasiswa, tb_matakuliah.nama_mk, tb_nilai.nilai
+FROM nilai_mahasiswa tb_nilai
+JOIN mata_kuliah tb_matakuliah
+ON tb_nilai.kode_mata_kuliah = tb_matakuliah.kode_mk;
+```
+
+<p align="center">
+      <img src="img_basdat/11INNER_JOIN.png">
+</p>
 
 
 ## J. CARA IMPORT DATABASE
