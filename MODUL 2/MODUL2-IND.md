@@ -416,17 +416,37 @@ ON tb_nilai.kode_mata_kuliah = tb_matakuliah.kode_mk;
 ```
 
 <p align="center">
-      <img src="img_basdat/11INNER_JOIN.png">
+      <img src="img_basdat/11Hasil_innerjoin.png">
 </p>
 
-
+---
 ## J. CARA IMPORT DATABASE
-> 1. Siapkan file database dalam format .sql yang akan diimpor.
-> 2. Buka phpMyAdmin.
-> 3. Buat sebuah database baru.
-> 4. Pilih tab 'Import' dan selanjutnya pilih file .sql yang akan diimpor.
-> 5. Tekan tombol 'Import' yang berada di bagian bawah halaman.
-> 6. Jika muncul pemberitahuan sukses, proses impor database telah berhasil dilakukan.
+### 1. Siapkan file database dalam format .sql yang akan diimpor.
+### 2. Buka phpMyAdmin.
+### 3. Buat sebuah database baru.
+
+<p align="left">
+      <img src="img_basdat/12Import_step3.png"
+</p>
+
+### 4. Pilih tab 'Import' dan selanjutnya pilih file .sql yang akan diimpor.
+
+<p align="left">
+      <img src="img_basdat/12Import_step4.png"
+</p>
+
+### 5. Tekan tombol 'Import' yang berada di bagian bawah halaman.
+
+<p align="left">
+      <img src="img_basdat/13Import_step5.png"
+</p>
+      
+### 6. Jika muncul pemberitahuan sukses, proses impor database telah berhasil dilakukan.
+
+<p align="left">
+      <img src="img_basdat/14Import_Step6.png"
+</p>
+
 
 
 
