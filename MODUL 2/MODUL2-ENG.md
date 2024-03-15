@@ -132,7 +132,7 @@ SELECT column1, column2, column2 % number FROM table_name;
 <img src="img_basdat/modulus.png">
 </p>
 
-## F. AGGREGATE OPERATORS
+## F. AGGREGATE OPERATIONS
 Aggregate operators, commonly known as aggregate functions, are operators used to summarize data within a table. These operators can be used in various DML statements, such as SELECT, GROUP BY, etc.
 ### 1. SUM
 SUM is used to calculate the total value within a column.
