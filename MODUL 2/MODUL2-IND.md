@@ -219,6 +219,7 @@ Subquery, yang juga dikenal sebagai nested query atau subselect, ialah bentuk qu
 - Klausa SELECT dalam subquery harus berisi satu nama kolom tunggal atau ekspresi, kecuali untuk subquery menggunakan kata kunci EXISTS.
 - Secara default, nama kolom dalam subquery mengacu pada nama tabel dalam klausa FROM di query utama dengan cara mengkualifikasi nama kolom.
 - Subquery tidak boleh digunakan sebagai operan dalam ekspresi.
+
 ```sql
 SELECT nama_kolom
 FROM nama_table
@@ -235,6 +236,7 @@ Berikut merupakan contoh penggunaan Subquery :
       <img src="img_basdat/03Tabel_MK.png" width = "310">
 </p>
 Subquery yang digunakan:
+
 ```sql
 SELECT nama
 FROM mahasiswa
@@ -243,6 +245,7 @@ WHERE nim IN
        FROM nilai_mahasiswa
        WHERE nilai > 80 AND kode_mata_kuliah = 'mk001');
 ```
+
 Query tersebut digunakan untuk mengambil nama mahasiswa dari tabel "mahasiswa" yang memenuhi kondisi tertentu. Subquery di dalamnya berfungsi untuk mencari NIM mahasiswa dari tabel "nilai_mahasiswa" yang memiliki nilai di atas 80 dan memiliki kode mata kuliah 'mk001'. Hasil dari subquery ini, yaitu NIM mahasiswa yang memenuhi kondisi tersebut, kemudian digunakan sebagai kriteria dalam query utama. Dengan menggunakan klausa WHERE dan operator IN, query utama mengekstrak nama mahasiswa yang memiliki NIM sesuai dengan hasil subquery. Dengan demikian, hasil akhir dari query tersebut adalah daftar nama mahasiswa yang memenuhi syarat nilai di atas 80 pada mata kuliah 'mk001' seperti berikut.
 <p align="center">
 <img src="img_basdat/04Hasil_Subquery.png" width="100">
