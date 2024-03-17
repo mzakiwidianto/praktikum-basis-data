@@ -1,15 +1,15 @@
 # **MODULE 2**
 
-## A. PENGENALAN DATA MANIPULATION LANGUAGE
+## A. INTRODUCTION DATA MANIPULATION LANGUAGE
 
 
-## B. PERINTAH PADA DATA MANIPULATION LANGUAGE 
+## B. COMMANDS IN DATA MANIPULATION LANGUAGE 
 ### 1. SELECT
 ### 2. INSERT
 ### 3. UPDATE
 ### 4. DELETE
 
-## C. OPERATOR LOGIKA
+## C. LOGIC OPERATORS
 ### 1. AND
 ### 2. IN 
 ### 3. OR
@@ -84,7 +84,7 @@ FROM table_name);
 <img src="img_basdat/except.png">
 </p>
 
-## E. ARITHMETIC OPERATIONS
+## E. ARITHMETIC OPERATORS
 Arithmetic Operators in SQL are used to perform simple arithmetic operations such as addition (+), subtraction (-), multiplication (*), division (/), and modulus (%).
 ### 1. Addition (+)
 Addition is used to add two values.
@@ -132,7 +132,7 @@ SELECT column1, column2, column2 % number FROM table_name;
 <img src="img_basdat/modulus.png">
 </p>
 
-## F. AGGREGATE OPERATIONS
+## F. AGGREGATE OPERATORS
 Aggregate operators, commonly known as aggregate functions, are operators used to summarize data within a table. These operators can be used in various DML statements, such as SELECT, GROUP BY, etc.
 ### 1. SUM
 SUM is used to calculate the total value within a column.
