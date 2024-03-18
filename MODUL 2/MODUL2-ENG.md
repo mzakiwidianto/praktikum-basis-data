@@ -182,6 +182,70 @@ SELECT COUNT(column_name) FROM table_name;
 <img src="img_basdat/count.png">
 </p>
 
+## G. SUBQUERY
+A subquery, also known as a nested query or subselect, is a form of query embedded within another query using the SELECT, WHERE, or FROM clauses. The purpose of a subquery is to generate data that will be used in the main query to limit or filter the data to be retrieved. Subqueries are used to provide additional conditions or criteria in the data retrieval process. Here are some rules for using subqueries:
+
+
+Subqueries must be enclosed in parentheses.
+- The use of the ORDER BY clause is not allowed in subqueries. The ORDER BY clause can be used in the main SELECT statement.
+- The SELECT clause in a subquery must contain a single column name or expression, except for subqueries using the EXISTS keyword.
+- By default, column names in a subquery refer to the table names in the FROM clause of the main query by qualifying the column names.
+- Subqueries cannot be used as operands in expressions.
+
+```sql
+SELECT column_name
+FROM table_name
+WHERE column_name operator
+      (SELECT column_name
+      FROM table_name
+      WHERE column_name operator);
+```
+Here is an example of using a subquery:
+
+
+The database "data_mahasiswa" consists of three tables: mahasiswa, nilai_mahasiswa, and mata_kuliah.
+<p align="center">
+<img src="img_basdat/01Tabel_Mahasiswa.png" width="310">
+      <img src="img_basdat/02Tabel_Nilai.png" width ="310">
+      <img src="img_basdat/03Tabel_MK.png" width = "310">
+</p>
+
+```sql
+SELECT nama
+FROM mahasiswa
+WHERE nim IN
+      (SELECT nim_mahasiswa
+       FROM nilai_mahasiswa
+       WHERE nilai > 80 AND kode_mata_kuliah = 'mk001');
+```
+
+This query is employed to retrieve the names of students from the "mahasiswa" table who meet specific conditions. The embedded subquery serves the purpose of finding student IDs from the "nilai_mahasiswa" table with grades exceeding 80 and associated with the course code “mk001”. The outcome of this subquery, which comprises the qualifying student IDs, is then used as criteria in the main query. Using the WHERE clause and the IN operator, the main query extracts the names of students whose student IDs match the results of the subquery. Therefore, the final result of this query is a list of student names who fulfill the criteria of having a grade above 80 in the course “mk001”.
+
+<p align="center">
+<img src="img_basdat/04Hasil_Subquery.png" width="100">
+</p>
+
+## H. COMPARISON OPERATORS
+### 1. Wildcard
+Wildcard is a special character used in search or data filtering operations. Wildcards allow users to match specific patterns within data values, providing additional flexibility in query or search conditions.
+<br>
+
+| Symbol        | Usage    | Example      |
+| :------------- |:-------------| :-------------|
+| %      | Represents zero, one, or more characters |‘baju%’ will find ‘bajubiru’, ‘bajumerah’|
+| _      | Represents a single character |‘p_t’ will find ‘pat’, ‘pet’, ‘pit’, ‘pot’, ‘put’|
+| [ ]      | Represents any single character within square brackets |‘p[ao]t’ will find ‘pat’ and ‘pot’|
+| ^      | Represents any character not in square brackets |‘p[^ao]t’ will find pet’, ‘pit’, ‘put’, but not ‘pat’ and ‘pot’|
+| -      | Represents a range of characters |c[a-d] will find cat, cbt, cct, and cdt|.
+
+```sql
+SELECT * FROM table_name WHERE column_name LIKE 'baju%'; will show rows that have column values starting with "baju."
+```
+
+
+
+
+
 
 
 
