@@ -242,6 +242,79 @@ Wildcard is a special character used in search or data filtering operations. Wil
 SELECT * FROM table_name WHERE column_name LIKE 'baju%'; will show rows that have column values starting with "baju."
 ```
 
+### 2. BETWEEN
+BETWEEN is used to return values within a specified range.
+
+```sql
+SELECT column_name FROM table_name WHERE column_name BETWEEN
+value-1 AND value-2;
+```
+
+### 3. IN
+IN is used to compare data with a predefined list, filtering results based on a set of values that match specific conditions.
+
+```sql
+SELECT * FROM table_name WHERE column_name IN (condition-1,
+condition-2, ..., condition-n);
+```
+
+
+### 4. DISTINCT
+DISTINCT is used to return unique values from the query results by eliminating records that contain duplicate data when displaying the data.
+
+```sql
+SELECT DISTINCT column_name FROM table_name;
+```
+
+### 5. LIMIT
+LIMIT is used to restrict the number of rows to be displayed.
+
+```sql
+SELECT column_name FROM table_name LIMIT number;
+```
+
+### 6. IS NULL
+IS NULL is used to check if a column has an empty value (NULL).
+
+```sql
+SELECT column_name FROM table_name WHERE column_name IS
+NULL;
+```
+
+### 7. GROUP BY
+GROUP BY is used to group data according to specified criteria.
+
+```sql
+SELECT column_name FROM table_name GROUP BY column_name;
+```
+
+### 8. ORDER BY
+ORDER BY is used to arrange query results based on values in one or more columns. Data sorting can be done in ascending (from smallest to largest) or descending (from largest to smallest) order.
+
+```sql
+SELECT column_name FROM table_name ORDER BY column_name
+ASC/DESC;
+```
+
+## I. SQL JOIN
+### 1. CROSS JOIN
+CROSS JOIN is a type of join that produces the cross product of two tables. The resulting table from CROSS JOIN will contain all possible combinations of rows from both tables, and each row in the result table will encompass all attributes (columns) from the first and second tables.
+
+```sql
+SELECT * FROM table-1 AS alias-1 CROSS JOIN table-2 AS alias-2;
+```
+
+Example:
+
+```sql
+SELECT *
+FROM mahasiswa AS tb_mahasiswa
+CROSS JOIN mata_kuliah AS tb_mk;
+```
+
+
+
+
 
 
 
