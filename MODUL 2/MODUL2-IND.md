@@ -10,15 +10,61 @@ Dengan menggunakan perintah DML, pengguna dapat memastikan bahwa data yang disim
 SELECT merupakan perintah DML yang digunakan untuk memilih dan 
 menampilkan nilai yang ada pada tabel. 
 Berikut merupakan syntax penulisan untuk perintah SELECT:
-- **Menampilkan seluruh data** 
-- **Menampilkan data pada kolom tertentu** 
-- **Menampilkan data kondisi tertentu** 
+- **Menampilkan seluruh data**
+
+```sql
+SELECT * FROM nama_tabel;
+```
+
+- **Menampilkan data pada kolom tertentu**
+
+``` sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel;
+```
+
+- **Menampilkan data kondisi tertentu**
+
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+WHERE kondisi;
+```
+
 - **Menampilkan data berdasarkan nilai yang berbeda saja**
+
+```sql
+SELECT DISTINCT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel;
+```
+
 - **Menampilkan data secara terurut**
 
+```sql
+SELECT kolom-1, kolom-2, …, kolom-n
+FROM nama_tabel
+ORDER BY nama_kolom ASC/DESC;
+```
+<br>
+(ASC: Menampilkan data dari nilai terkecil ke terbesar. DESC: menampilkan data dari nilai terbesar ke terkecil.)
+<br>
+<br>
 Selain syntax di atas, terdapat beberapa command tambahan yang dapat ditambahkan pada perintah SELECT seperti berikut: 
-- **Menggabungkan dan menampilkan dua kolom** 
+
+- **Menggabungkan dan menampilkan dua kolom**
+
+```sql
+SELECT CONCAT ( kolom-1, kolom-2)
+FROM nama_tabel;
+```
+
 - **Menampilkan kolom dengan nama lain**
+
+```sql
+SELECT nama_kolom AS nama_alias
+FROM nama_tabel;
+```
+
 - **Menyalin data dari satu tabel ke dalam tabel baru (insert into)**
 
 ### 2. INSERT
